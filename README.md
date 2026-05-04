@@ -6,7 +6,7 @@ Navegar por um carrossel animado de planetas
 Selecionar um planeta para visualização em 3D
 Interagir com o modelo (rotação + zoom)
 Ler informações básicas sobre cada planeta
-------------------------------------------------------
+
 A proposta foi criar uma experiência leve, fluida e visualmente envolvente diretamente no navegador, sem uso de engines externas.
 
 - Funcionalidades
