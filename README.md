@@ -2,10 +2,10 @@ Sobre o projeto -
 
 O projeto simula um observatório espacial interativo, onde o usuário pode:
 
-Navegar por um carrossel animado de planetas
-Selecionar um planeta para visualização em 3D
-Interagir com o modelo (rotação + zoom)
-Ler informações básicas sobre cada planeta
+- Navegar por um carrossel animado de planetas
+- Selecionar um planeta para visualização em 3D
+- Interagir com o modelo (rotação + zoom)
+- Ler informações básicas sobre cada planeta
 
 A proposta foi criar uma experiência leve, fluida e visualmente envolvente diretamente no navegador, sem uso de engines externas.
 
@@ -36,8 +36,8 @@ Este projeto foi desenvolvido com foco em:
 
 Durante o desenvolvimento, alguns desafios importantes foram resolvidos:
 
-Normalização de escala entre diferentes modelos 3D
-Correção de pivôs e rotação de objetos
-Ajuste de câmera para evitar clipping
-Integração de interação (drag + zoom)
-Problemas com assets inconsistentes
+- Normalização de escala entre diferentes modelos 3D
+- Correção de pivôs e rotação de objetos
+- Ajuste de câmera para evitar clipping
+- Integração de interação (drag + zoom)
+- Problemas com assets inconsistentes
