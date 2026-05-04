@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cosmos Explorer">
+  <meta name="description" content="Explore os planetas do sistema solar">
+  <meta name="keywords" content="universo, planetas, cosmo, cosmos, cósmico, observatório, espacial, espaço">
+  <link rel="stylesheet" href="style.css">
+  <title>Cosmos Explorer</title>
+  <link rel="shortcut icon" href="cosmosicon.ico" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+
+<body>
+<header>
+  <div class="logo">
+    <img src="Imagens/cosmos-explorer.png" alt="Logo">
+  </div>
+ 
+  <nav>
+  <h1 class="intro">E aí, bora explorar?</h1>
+  </nav>
+</header>
+
+<main>
+
+<section class="boas-vindas1">
+    <div class="boas-vindas2">
+      <h1>Selecione um planeta</h1>
+    </div>
+  </section>
+
+<section>
+      <div class="carrossel-div">
+  <div class="carrossel" id="carrossel">
+    <img src="Imagens/mercurio.png" class="planet" data-planet="mercurio">
+    <img src="Imagens/venus.png" class="planet" data-planet="venus">
+    <img src="Imagens/terra.png" class="planet" data-planet="terra">
+    <img src="Imagens/marte.png" class="planet" data-planet="marte">
+    <img src="Imagens/jupiter.png" class="planet" data-planet="jupiter">
+    <img src="Imagens/saturno.png" class="planet" data-planet="saturno">
+    <img src="Imagens/urano.png" class="planet" data-planet="urano">
+    <img src="Imagens/netuno.png" class="planet" data-planet="netuno">
+    <img src="Imagens/mercurio.png" class="planet" data-planet="mercurio">
+    <img src="Imagens/venus.png" class="planet" data-planet="venus">
+    <img src="Imagens/terra.png" class="planet" data-planet="terra">
+    <img src="Imagens/marte.png" class="planet" data-planet="marte">
+    <img src="Imagens/jupiter.png" class="planet" data-planet="jupiter">
+    <img src="Imagens/saturno.png" class="planet" data-planet="saturno">
+    <img src="Imagens/urano.png" class="planet" data-planet="urano">
+    <img src="Imagens/netuno.png" class="planet" data-planet="netuno">
+    <img src="Imagens/mercurio.png" class="planet" data-planet="mercurio">
+    <img src="Imagens/venus.png" class="planet" data-planet="venus">
+    <img src="Imagens/terra.png" class="planet" data-planet="terra">
+    <img src="Imagens/marte.png" class="planet" data-planet="marte">
+    <img src="Imagens/jupiter.png" class="planet" data-planet="jupiter">
+    <img src="Imagens/saturno.png" class="planet" data-planet="saturno">
+    <img src="Imagens/urano.png" class="planet" data-planet="urano">
+    <img src="Imagens/netuno.png" class="planet" data-planet="netuno">
+  </div>
+</div>
+<!-- overlay escuro -->
+<div id="overlay"></div>
+<!-- container do 3D -->
+<div id="viewer3d">
+  <div id="info">
+  <h2 id="titulo"></h2>
+  <p id="descricao"></p>
+  <button id="BotaoVoltar">← Voltar</button>
+  </div>
+</div>
+</section>
+
+<section class="sistema_solar">
+    <div></div>
+</section>
+
+<section class="curiosidades">
+    <ul></ul>
+</section>
+
+</main>
+
+<footer>
+  <section class="direitos">
+    <p>© Copyright 2026 — Cosmos Explorer</p>
+    <p>Termos de Uso</p>
+    <p>Política de Privacidade</p>
+  </section>
+</footer>
+
+<script src="script.js"></script>
+</body>
+
+</html>
