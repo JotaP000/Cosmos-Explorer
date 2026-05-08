@@ -170,7 +170,7 @@ window.addEventListener("wheel", (e) => {
     const scale = 3 / maxDim;
     objeto3D.scale.setScalar(scale);
 
-    // ajuste especial Saturno (anéis quebram escala)
+    // ajuste especial Saturno
     if (planetName === "saturno") {
       objeto3D.scale.multiplyScalar(2.5);
     }
@@ -232,7 +232,11 @@ camera.position.z += (zoomTarget - camera.position.z) * 0.1;
 }
 
 // DIGITAÇÃO
+let typingTimeout;
+
 function digitarTexto(el, texto, vel = 25) {
+  clearTimeout(typingTimeout);
+  
   el.textContent = "";
   let i = 0;
 
@@ -240,7 +244,8 @@ function digitarTexto(el, texto, vel = 25) {
     if (i < texto.length) {
       el.textContent += texto[i];
       i++;
-      setTimeout(escrever, vel);
+
+      typingTimeout = setTimeout(escrever, vel);
     }
   }
 
