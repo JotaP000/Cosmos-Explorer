@@ -368,3 +368,120 @@ footer .direitos {
   font-size: 1.2rem;
 }
 }
+
+/* ===================== CELULAR ===================== */
+@media (max-width: 480px) {
+
+  html { font-size: 55%; }
+
+  header {
+    padding: 2.5rem 1rem;
+  }
+
+  .logo > img {
+    position: static;
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .intro { font-size: 2.1rem; }
+
+  .boas-vindas1 {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Carrossel */
+  .carrossel-div {
+    padding: 15px 0 80px 0;
+  }
+
+  .carrossel img {
+    height: 110px !important;
+  }
+
+  .planet {
+    width: 110px !important;
+    min-width: 110px;
+  }
+
+  /* Viewer 3D */
+  #BotaoVoltar {
+    top: 15px;
+    left: 15px;
+    font-size: 1.25rem;
+    padding: 10px 16px;
+  }
+
+  /* Painel inferior */
+  #info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 44dvh;
+    min-height: 270px;
+    background: rgba(3, 8, 20, 0.96);
+    backdrop-filter: blur(12px);
+    border-top: 2px solid #75EACF;
+    border-radius: 20px 20px 0 0;
+    padding: 2rem 1.8rem 3rem;
+    z-index: 30;
+  }
+
+  #info.fechado {
+    transform: translateY(78%);
+  }
+
+  #toggleInfo {
+    left: 50%;
+    top: -26px;
+    transform: translateX(-50%) rotate(90deg);
+    width: 52px;
+    height: 52px;
+    font-size: 2.6rem;
+  }
+
+  #info.fechado #toggleInfo {
+    transform: translateX(-50%) rotate(-90deg);
+  }
+
+  #titulo {
+    font-size: 2.25rem;
+    margin-bottom: 1.2rem;
+  }
+
+  #descricao {
+    font-size: 1.35rem;
+    line-height: 1.7;
+    max-height: 27dvh;
+    overflow-y: auto;
+  }
+
+  footer .direitos {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2rem 1rem;
+  }
+}
+
+/* ===================== CORREÇÕES GERAIS ===================== */
+#viewer3d canvas {
+  image-rendering: crisp-edges;
+}
+
+.planet {
+  touch-action: manipulation;
+}
+
+.sistema_solar,
+.curiosidades {
+  display: none; /* Remove sections vazias que estavam esticando a página */
+}
+
+/* Evita zoom indesejado */
+input, button, select, textarea {
+  font-size: 16px;
+}
