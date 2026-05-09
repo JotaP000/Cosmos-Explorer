@@ -14,130 +14,109 @@
 
 html {
   font-size: 62.5%;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Orbitron';
+  font-family: 'Orbitron', sans-serif;
   color: var(--ciano);
   margin: 0;
-  overflow-x: clip;
+  overflow-x: hidden;
+  background: #000;
 }
 
-h1 {
-  font-family: 'Orbitron';
-}
+h1, h2 { font-family: 'Orbitron', sans-serif; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* header */
-
+/* ===================== HEADER ===================== */
 header {
   position: relative;
   background-color: var(--azul-super-escuro);
-  padding: 5rem;
+  padding: 4rem 2rem 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  gap: 2rem;
 }
 
-.logo > img {
-  position: absolute;
-  width: 230px;
-  height: 130px;
-  top: -9%;
-  left: -0.3%;
+.logo img {
+  width: 220px;
+  height: auto;
+  max-width: 100%;
 }
 
 .intro {
-  position: static;
   text-align: center;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  white-space: nowrap;
 }
 
-/* main */
-
+/* ===================== MAIN ===================== */
 main {
+  background: url(Imagens/cenário-cosmico.webp) center/cover no-repeat;
+  min-height: 100vh;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
-  background: url(Imagens/cenário-cosmico.webp) center no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
   align-items: center;
-  min-height: 100vh;
 }
 
 .boas-vindas1 {
   border: 2px solid white;
   background-color: var(--azul-super-escuro);
   border-radius: 1rem;
-  padding: 20px;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  box-shadow: 0 0 15px #42EEF2;
+  padding: 2rem 3rem;
+  margin: 3rem 0;
+  box-shadow: 0 0 20px #42EEF2;
+  text-align: center;
+  max-width: 90%;
+}
+
+.boas-vindas2 h1 {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+}
+
+/* ===================== CARROSSEL ===================== */
+.ajuste-carrossel {
+  width: 100%;
+  max-width: 1400px;
 }
 
 .carrossel-div {
   overflow: hidden;
-  width: 100%;
-  padding: 20px 0;
-  padding-bottom: 2rem;
+  padding: 2rem 0 6rem;
 }
 
 .carrossel {
   display: flex;
   width: fit-content;
-  animation: scrollLeft 40s linear infinite;
-}
-
-.carrossel img:last-child {
-  margin-right: 0;
+  animation: scrollLeft 35s linear infinite;
+  gap: 2.5rem;
 }
 
 .carrossel:hover {
   animation-play-state: paused;
 }
 
-.carrossel div {
-  flex-shrink: 0;
-}
-
 @keyframes scrollLeft {
-  from   { transform: translateX(0); }
+  from { transform: translateX(0); }
   to { transform: translateX(-33.333%); }
-}
-
-.carrossel img {
-  height: 180px;
-  width: auto;
-  border-radius: 8px;
-  display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-right: 20px;
-  flex-shrink: 0;
-}
-
-.carrossel img:hover {
-  transform: scale(1.02);
 }
 
 .planet {
   width: 160px;
-  transition: transform 0.3s;
+  height: 160px;
   border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  touch-action: manipulation;
 }
 
 .planet:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
+/* ===================== 3D VIEWER ===================== */
 #overlay {
   position: fixed;
   inset: 0;
@@ -153,6 +132,7 @@ main {
   inset: 0;
   display: none;
   z-index: 10;
+  background: #000;
 }
 
 #viewer3d.ativo {
@@ -162,26 +142,23 @@ main {
 #viewer3d canvas {
   position: absolute;
   inset: 0;
-}
-
-#descricao {
-  white-space: pre-line;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 #BotaoVoltar {
-  position: absolute;
+  position: fixed;
   top: 20px;
-  left: 120px;
-  z-index: 30;
-  background: rgba(0, 0, 0, 0.6);
+  left: 20px;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid #75EACF;
   color: #75EACF;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border-radius: 8px;
-  font-family: 'Orbitron';
+  font-size: 1.4rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  pointer-events: auto;
+  transition: all 0.3s;
 }
 
 #BotaoVoltar:hover {
@@ -189,259 +166,135 @@ main {
   color: black;
 }
 
-/* painel lateral */
+/* Painel de Informação */
 #info {
   position: absolute;
   right: 0;
   top: 0;
-  width: 320px;
+  width: 340px;
   height: 100%;
-  padding: 25px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  color: white;
+  padding: 30px 25px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
   z-index: 20;
   transition: transform 0.4s ease;
+  overflow-y: auto;
 }
 
 #info.fechado {
-  transform: translateX(280px);
+  transform: translateX(100%);
 }
 
 #toggleInfo {
   position: absolute;
-  top: 20px;
   left: -45px;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #75EACF;
+  top: 30px;
+  width: 45px;
+  height: 45px;
+  border: 2px solid #75EACF;
   border-radius: 50%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.8);
   color: #75EACF;
-  font-size: 2rem;
-  font-family: 'Orbitron';
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-#toggleInfo:hover {
-  background: #75EACF;
-  color: black;
-}
-
-/* seta girada */
-
-#info.fechado #toggleInfo {
-  transform: rotate(180deg);
-}
-
-#viewer3d {
-  pointer-events: none;
-}
-
-#viewer3d canvas {
-  pointer-events: auto;
-}
-
-#info {
-  pointer-events: auto;
-}
-
-canvas {
-  display: block;
-}
-
-/* footer */
-
-footer {
-  background: var(--azul-super-escuro);
-  color: var(--ciano);
-}
-
-footer .direitos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.4rem;
-  font-size: 1.3rem;
-  letter-spacing: 0.06em;
-  gap: 5rem;
-}
-
-/* tablet */
-
-@media (min-width: 769px) and (max-width: 1024px) {
-
-/* header */
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem;
-  gap: 2rem;
-}
-
-.logo > img {
-  position: static;
-  width: 180px;
-  height: auto;
-}
-
-.intro {
-  position: static;
-  left: auto;
-  text-align: center;
-  font-size: 2rem;
-}
-
-/* main */
-
-main {
-  background-size: cover;
-  padding: 0 2rem;
-}
-
-.boas-vindas1 {
-  text-align: center;
-  width: 90%;
-  max-width: 500px;
-}
-
-.boas-vindas2 h1 {
   font-size: 2.4rem;
-}
-
-/* carrossel */
-
-.carrossel-div {
-  padding-bottom: 10rem;
-}
-
-.carrossel img {
-  height: 180px;
-}
-
-.planet {
-  width: 120px;
-}
-
-/* painel 3D */
-
-#info {
-  width: 280px;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
 }
 
 #titulo {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.6rem;
+  margin: 1.5rem 0 1rem;
 }
 
 #descricao {
-  font-size: 1.3rem;
-  line-height: 1.7;
-  overflow-y: auto;
-  max-height: 75vh;
-  padding-right: 0.5rem;
+  font-size: 1.45rem;
+  line-height: 1.75;
+  white-space: pre-line;
 }
 
-#BotaoVoltar {
-  position: fixed;
-  top: 40px;
-  left: 10rem !important;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.3rem;
-  z-index: 999;
-}
-
-/* footer */
-
-footer .direitos {
-  flex-direction: column;
-  gap: 1.5rem;
+/* Footer */
+footer {
+  background: var(--azul-super-escuro);
+  padding: 3rem 1rem;
   text-align: center;
-  font-size: 1.2rem;
-}
 }
 
-/* ===================== CELULAR ===================== */
-@media (max-width: 480px) {
+.direitos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.35rem;
+}
 
-  html { font-size: 55%; }
+/* ===================== RESPONSIVIDADE ===================== */
+
+/* ==================== TABLET ==================== */
+@media (max-width: 1024px) {
+  .planet {
+    width: 140px;
+    height: 140px;
+  }
+
+  #info {
+    width: 300px;
+  }
+
+  #BotaoVoltar {
+    top: 25px;
+    left: 25px;
+  }
+}
+
+/* ==================== CELULAR ==================== */
+@media (max-width: 768px) {
+  html { font-size: 58%; }
 
   header {
-    padding: 2.5rem 1rem;
+    padding: 3rem 1rem 5rem;
   }
 
-  .logo > img {
-    position: static;
-    width: 180px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .intro { font-size: 2.1rem; }
-
-  .boas-vindas1 {
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  /* Carrossel */
-  .carrossel-div {
-    padding: 15px 0 80px 0;
-  }
-
-  .carrossel img {
-    height: 110px !important;
+  .logo img {
+    width: 190px;
   }
 
   .planet {
-    width: 110px !important;
-    min-width: 110px;
+    width: 115px;
+    height: 115px;
   }
 
-  /* Viewer 3D */
-  #BotaoVoltar {
-    top: 15px;
-    left: 15px;
-    font-size: 1.25rem;
-    padding: 10px 16px;
+  .carrossel {
+    gap: 1.8rem;
+    animation-duration: 28s; /* mais rápido em mobile */
   }
 
-  /* Painel inferior */
+  /* Painel 3D vira inferior no celular */
   #info {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: 44dvh;
-    min-height: 270px;
-    background: rgba(3, 8, 20, 0.96);
-    backdrop-filter: blur(12px);
-    border-top: 2px solid #75EACF;
+    height: 48dvh;
+    max-height: 420px;
     border-radius: 20px 20px 0 0;
-    padding: 2rem 1.8rem 3rem;
-    z-index: 30;
+    border-top: 3px solid #75EACF;
+    padding: 2.5rem 2rem 4rem;
   }
 
   #info.fechado {
-    transform: translateY(78%);
+    transform: translateY(85%);
   }
 
   #toggleInfo {
     left: 50%;
-    top: -26px;
+    top: -32px;
     transform: translateX(-50%) rotate(90deg);
-    width: 52px;
-    height: 52px;
-    font-size: 2.6rem;
+    width: 58px;
+    height: 58px;
+    font-size: 2.8rem;
   }
 
   #info.fechado #toggleInfo {
@@ -449,39 +302,33 @@ footer .direitos {
   }
 
   #titulo {
-    font-size: 2.25rem;
-    margin-bottom: 1.2rem;
+    font-size: 2.3rem;
   }
 
   #descricao {
-    font-size: 1.35rem;
-    line-height: 1.7;
-    max-height: 27dvh;
-    overflow-y: auto;
+    font-size: 1.4rem;
+    max-height: 28dvh;
   }
 
-  footer .direitos {
+  .direitos {
     flex-direction: column;
-    gap: 1.2rem;
-    padding: 2rem 1rem;
+    gap: 1.5rem;
   }
 }
 
-/* ===================== CORREÇÕES GERAIS ===================== */
-#viewer3d canvas {
-  image-rendering: crisp-edges;
+/* ==================== CORREÇÕES GERAIS ==================== */
+@media (max-width: 480px) {
+  .planet {
+    width: 105px;
+    height: 105px;
+  }
 }
 
-.planet {
-  touch-action: manipulation;
-}
-
-.sistema_solar,
-.curiosidades {
-  display: none; /* Remove sections vazias que estavam esticando a página */
-}
-
-/* Evita zoom indesejado */
+/* Evita zoom indesejado em inputs e botões */
 input, button, select, textarea {
   font-size: 16px;
+}
+
+.sistema_solar, .curiosidades {
+  display: none;
 }
