@@ -371,146 +371,103 @@ footer .direitos {
 
 @media (max-width: 768px) {
 
-html {
-  font-size: 56.25%;
-}
+  html {
+    font-size: 56.25%;
+  }
 
-/* header */
+  header {
+    padding: 2.5rem 1.5rem;
+  }
 
-header {
-  padding: 2.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
+  .logo > img {
+    width: 160px;
+  }
 
-.logo > img {
-  position: static;
-  width: 160px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+  .intro {
+    font-size: 2rem;
+  }
 
-.intro {
-  position: static;
-  text-align: center;
-  font-size: 2rem;
-  left: unset;
-}
+  main {
+    padding: 0 1.5rem;
+    background-attachment: scroll;
+  }
 
-/* main */
+  .boas-vindas1 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 
-main {
-  padding: 0 1.5rem;
-  background-attachment: scroll;
-}
+  .boas-vindas2 h1 {
+    font-size: 2rem;
+  }
 
-.boas-vindas1 {
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  padding: 1.6rem;
-}
+  .carrossel-div {
+    padding-bottom: 8rem;
+  }
 
-.boas-vindas2 h1 {
-  font-size: 2rem;
-}
+  .carrossel img {
+    height: 130px;
+    margin-right: 1.4rem;
+  }
 
-/* carrossel */
+  #viewer3d {
+    height: 100dvh;
+  }
 
-.carrossel-div {
-  width: 100%;
-  padding-bottom: 8rem;
-}
+  #info {
+    width: 100%;
+    height: 42dvh;
 
-.carrossel img {
-  height: 140px;
-  margin-right: 14px;
-}
+    min-height: 260px;
 
-.planet {
-  width: 100px;
-}
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-.planet:hover {
-  transform: scale(1.08);
-}
+    padding: 2rem;
 
-/* painel 3D */
+    border-top: 1px solid rgba(117, 234, 207, 0.3);
 
-#viewer3d {
-  height: 100dvh;
-}
+    backdrop-filter: blur(4px);
+  }
 
-#info {
-  width: 100%;
-  height: 40dvh;
-  min-height: 280px;
-  max-height: 40dvh;
-  right: 0;
-  left: 0;
-  top: auto;
-  bottom: 0;
-  padding: 2rem;
-  border-top: 1px solid rgba(117, 234, 207, 0.3);
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(4px);
-  overflow: hidden;
-}
+  #info.fechado {
+    transform: translateY(85%);
+  }
 
-#info.fechado {
-  transform: translateY(85%);
-}
+  #toggleInfo {
+    left: 50%;
+    top: -18px;
 
-/* seta */
+    transform: translateX(-50%) rotate(90deg);
+  }
 
-#toggleInfo {
-  left: 50%;
-  top: -5px;
+  #info.fechado #toggleInfo {
+    transform: translateX(-50%) rotate(-90deg);
+  }
 
-  transform: translateX(-50%) rotate(90deg);
-}
+  #titulo {
+    font-size: 2rem;
+  }
 
-/* seta quando fechado */
+  #descricao {
+    font-size: 1.3rem;
+    max-height: 24dvh;
+  }
 
-#info.fechado #toggleInfo {
-  transform: translateX(-50%) rotate(-90deg);
-}
+  #BotaoVoltar {
+    top: 1.2rem;
+    left: 1.2rem;
 
-#titulo {
-  font-size: 2.2rem;
-  margin-bottom: 1.2rem;
-}
+    font-size: 1.2rem;
 
-#descricao {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  max-height: 24dvh;
-  overflow-y: auto;
-}
+    padding: 0.8rem 1.2rem;
+  }
 
-#BotaoVoltar {
-  position: fixed;
-  top: 1.5rem;
-  left: 1.5rem;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.3rem;
-  z-index: 999;
-}
-
-/* footer */
-
-footer .direitos {
-  flex-direction: column;
-  gap: 1.2rem;
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 2rem 1rem;
-}
+  footer .direitos {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
 }
