@@ -92,7 +92,11 @@ planets.forEach(planet => {
     clone.style.transition = "all 0.6s ease";
     clone.style.left = "50%";
     clone.style.top = "50%";
-    clone.style.transform = "translate(-50%, -50%) scale(4)";
+    const isMobile = window.innerWidth <= 768;
+
+    clone.style.transform = isMobile
+    ? "translate(-50%, -50%) scale(2.2)"
+    : "translate(-50%, -50%) scale(4)";
 
     setTimeout(() => {
       clone.style.opacity = "0";
@@ -198,20 +202,62 @@ window.addEventListener("wheel", (e) => {
   // CONTROLE
   let isDragging = false;
 
-  renderer.domElement.addEventListener("mousedown", () => {
-    isDragging = true;
-  });
+let previousX = 0;
+let previousY = 0;
 
-  window.addEventListener("mouseup", () => {
-    isDragging = false;
-  });
+// MOUSE
 
-  window.addEventListener("mousemove", (e) => {
-    if (!isDragging || !pivot) return;
+renderer.domElement.addEventListener("mousedown", (e) => {
+  isDragging = true;
 
-    pivot.rotation.y += e.movementX * 0.005;
-    pivot.rotation.x += e.movementY * 0.005;
-  });
+  previousX = e.clientX;
+  previousY = e.clientY;
+});
+
+window.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+window.addEventListener("mousemove", (e) => {
+  if (!isDragging || !pivot) return;
+
+  const deltaX = e.clientX - previousX;
+  const deltaY = e.clientY - previousY;
+
+  pivot.rotation.y += deltaX * 0.005;
+  pivot.rotation.x += deltaY * 0.005;
+
+  previousX = e.clientX;
+  previousY = e.clientY;
+});
+
+// TOUCH
+
+renderer.domElement.addEventListener("touchstart", (e) => {
+  isDragging = true;
+
+  previousX = e.touches[0].clientX;
+  previousY = e.touches[0].clientY;
+});
+
+window.addEventListener("touchend", () => {
+  isDragging = false;
+});
+
+window.addEventListener("touchmove", (e) => {
+  if (!isDragging || !pivot) return;
+
+  const touch = e.touches[0];
+
+  const deltaX = touch.clientX - previousX;
+  const deltaY = touch.clientY - previousY;
+
+  pivot.rotation.y += deltaX * 0.005;
+  pivot.rotation.x += deltaY * 0.005;
+
+  previousX = touch.clientX;
+  previousY = touch.clientY;
+});
 
   // TEXTO
   const titulo = document.getElementById("titulo");
