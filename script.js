@@ -143,6 +143,15 @@ const maxZoom = 12; // mais longe
 window.addEventListener("wheel", (e) => {
   zoomTarget += e.deltaY * 0.01;
 
+// Ajuste responsivo do canvas no mobile
+window.addEventListener('resize', () => {
+  if (renderer && camera) {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+});
+
   // limita o zoom
   zoomTarget = Math.max(minZoom, Math.min(maxZoom, zoomTarget));
 });

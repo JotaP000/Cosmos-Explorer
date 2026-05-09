@@ -25,29 +25,28 @@ body {
   background: #000;
 }
 
-h1, h2 { font-family: 'Orbitron', sans-serif; }
-
-/* ===================== HEADER ===================== */
+/* ===================== HEADER (como era antes) ===================== */
 header {
   position: relative;
   background-color: var(--azul-super-escuro);
-  padding: 4rem 2rem 6rem;
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
 }
 
 .logo img {
-  width: 220px;
-  height: auto;
-  max-width: 100%;
+  position: absolute;
+  width: 230px;
+  height: 130px;
+  top: -9%;
+  left: -0.3%;
 }
 
 .intro {
+  position: static;
   text-align: center;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  white-space: nowrap;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
 }
 
 /* ===================== MAIN ===================== */
@@ -65,7 +64,7 @@ main {
   background-color: var(--azul-super-escuro);
   border-radius: 1rem;
   padding: 2rem 3rem;
-  margin: 3rem 0;
+  margin: 4rem 0 3rem;
   box-shadow: 0 0 20px #42EEF2;
   text-align: center;
   max-width: 90%;
@@ -78,7 +77,8 @@ main {
 /* ===================== CARROSSEL ===================== */
 .ajuste-carrossel {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
+  padding-top: 8rem;
 }
 
 .carrossel-div {
@@ -166,7 +166,7 @@ main {
   color: black;
 }
 
-/* Painel de Informação */
+/* ===================== PAINEL INFO (setinha original) ===================== */
 #info {
   position: absolute;
   right: 0;
@@ -174,33 +174,53 @@ main {
   width: 340px;
   height: 100%;
   padding: 30px 25px;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.82);
   backdrop-filter: blur(12px);
-  z-index: 20;
+  z-index: 25;
   transition: transform 0.4s ease;
   overflow-y: auto;
+  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* IMPORTANTE: permite que a setinha fique visível fora do painel */
+#info {
+  overflow: visible;
 }
 
 #info.fechado {
   transform: translateX(100%);
 }
 
+/* ===================== SETINHA (acima de tudo) ===================== */
 #toggleInfo {
   position: absolute;
-  left: -45px;
-  top: 30px;
-  width: 45px;
-  height: 45px;
-  border: 2px solid #75EACF;
+  top: 40px;
+  left: -48px;
+  width: 52px;
+  height: 52px;
+  border: 2.5px solid #75EACF;
   border-radius: 50%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(3, 8, 20, 0.98);
   color: #75EACF;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9999 !important;     /* Bem alto */
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(117, 234, 207, 0.6);
+  pointer-events: auto;
+}
+
+#toggleInfo:hover {
+  background: #75EACF;
+  color: #000;
+  transform: scale(1.12);
+}
+
+#info.fechado #toggleInfo {
+  transform: rotate(180deg);
 }
 
 #titulo {
@@ -231,33 +251,42 @@ footer {
 
 /* ===================== RESPONSIVIDADE ===================== */
 
-/* ==================== TABLET ==================== */
+/* TABLET */
 @media (max-width: 1024px) {
+  header {
+    padding: 4rem 2rem 5rem;
+  }
+
+  .logo img {
+    width: 200px;
+    height: auto;
+    top: -12%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .planet {
-    width: 140px;
-    height: 140px;
+    width: 135px;
+    height: 135px;
   }
 
   #info {
     width: 300px;
   }
-
-  #BotaoVoltar {
-    top: 25px;
-    left: 25px;
-  }
 }
 
-/* ==================== CELULAR ==================== */
+/* ===================== CELULAR - BOTTOM SHEET ===================== */
 @media (max-width: 768px) {
-  html { font-size: 58%; }
+  html { font-size: 56%; }
 
   header {
-    padding: 3rem 1rem 5rem;
+    padding: 3.5rem 1rem 4.5rem;
   }
 
   .logo img {
+    position: static;
     width: 190px;
+    height: auto;
   }
 
   .planet {
@@ -267,68 +296,80 @@ footer {
 
   .carrossel {
     gap: 1.8rem;
-    animation-duration: 28s; /* mais rápido em mobile */
+    animation-duration: 28s;
   }
 
-  /* Painel 3D vira inferior no celular */
+  /* Painel inferior */
   #info {
     position: fixed;
+    margin-top: 470px;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: 48dvh;
-    max-height: 420px;
+    height: 34dvh;
+    max-height: 310px;
+    background: rgba(3, 8, 20, 0.97);
+    border-top: 4px solid #75EACF;
     border-radius: 20px 20px 0 0;
-    border-top: 3px solid #75EACF;
-    padding: 2.5rem 2rem 4rem;
+    box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.9);
+    padding: 1.8rem 2rem 2.5rem;
+    z-index: 50;
+    overflow: visible;
   }
 
   #info.fechado {
-    transform: translateY(85%);
+    transform: translateY(93%);
   }
 
+  /* ===================== SETINHA NO CELULAR ===================== */
   #toggleInfo {
+    position: absolute;
     left: 50%;
-    top: -32px;
-    transform: translateX(-50%) rotate(90deg);
-    width: 58px;
-    height: 58px;
-    font-size: 2.8rem;
+    top: -38px;
+    transform: translateX(-50%);
+    width: 68px;
+    height: 68px;
+    font-size: 3.4rem;
+    background: rgba(3, 8, 20, 0.98);
+    color: #75EACF;
+    border: 2.5px solid #75EACF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999999 !important;     /* Acima de tudo */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+    transition: all 0.25s ease;
+    pointer-events: auto;
+    font-size: 0;
   }
 
+  #toggleInfo::before {
+    content: "↓";
+    display: block;
+    font-size: 4rem;
+  }
+
+  /* Remove o texto original (❯) */
+  #toggleInfo::after {
+    content: none;
+  }
+
+  #toggleInfo:hover {
+    background: #75EACF;
+    color: #000;
+    transform: translateX(-50%) scale(1.1);   /* Mantém centralizado */
+    box-shadow: 0 8px 25px rgba(117, 234, 207, 0.5);
+  }
+
+  /* Quando o painel está fechado */
   #info.fechado #toggleInfo {
-    transform: translateX(-50%) rotate(-90deg);
+    transform: translateX(-50%) rotate(180deg);
   }
 
-  #titulo {
-    font-size: 2.3rem;
+  #info.fechado #toggleInfo:hover {
+    transform: translateX(-50%) rotate(180deg) scale(1.1);
   }
-
-  #descricao {
-    font-size: 1.4rem;
-    max-height: 28dvh;
-  }
-
-  .direitos {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-}
-
-/* ==================== CORREÇÕES GERAIS ==================== */
-@media (max-width: 480px) {
-  .planet {
-    width: 105px;
-    height: 105px;
-  }
-}
-
-/* Evita zoom indesejado em inputs e botões */
-input, button, select, textarea {
-  font-size: 16px;
-}
-
-.sistema_solar, .curiosidades {
-  display: none;
 }
