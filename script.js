@@ -1,3 +1,10 @@
+const infoPanel = document.getElementById("info");
+const toggleInfo = document.getElementById("toggleInfo");
+
+toggleInfo.addEventListener("click", () => {
+  infoPanel.classList.toggle("fechado");
+});
+
 console.log("GLTFLoader:", THREE.GLTFLoader);
 
 const planets = document.querySelectorAll(".planet");
@@ -10,7 +17,7 @@ btnVoltar.addEventListener("click", () => {
 viewer.classList.remove("ativo");
 // limpa overlay
 overlay.style.opacity = "0";
-// remove canvas (importante!)
+// remove canvas
 const canvas = viewer.querySelector("canvas");
 if (canvas) canvas.remove();
 
