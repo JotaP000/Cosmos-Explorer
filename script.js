@@ -12,15 +12,17 @@ const overlay = document.getElementById("overlay");
 const viewer = document.getElementById("viewer3d");
 
 const btnVoltar = document.getElementById("BotaoVoltar");
-btnVoltar.addEventListener("click", () => {
-// esconde viewer
-viewer.classList.remove("ativo");
-// limpa overlay
-overlay.style.opacity = "0";
-// remove canvas
-const canvas = viewer.querySelector("canvas");
-if (canvas) canvas.remove();
 
+btnVoltar.addEventListener("click", () => {
+  viewer.classList.remove("ativo");
+  document.body.classList.remove("viewer-ativo");
+  document.documentElement.classList.remove("viewer-ativo");
+
+  overlay.style.opacity = "0";
+
+  // Remove canvas
+  const canvas = viewer.querySelector("canvas");
+  if (canvas) canvas.remove();
 });
 
 // DADOS DOS PLANETAS
@@ -102,6 +104,8 @@ planets.forEach(planet => {
       clone.style.pointerEvents = "none";
 
       viewer.classList.add("ativo");
+      document.body.classList.add("viewer-ativo");
+      document.documentElement.classList.add("viewer-ativo");
 
       iniciar3D(planetName);
     }, 600);

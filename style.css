@@ -322,6 +322,25 @@ footer {
     transform: translateY(93%);
   }
 
+/* ===================== SCROLL DA DESCRIÇÃO ===================== */
+  #info #descricao {
+    max-height: calc(100% - 90px) !important;   /* Espaço pro título + margem */
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;           /* Scroll suave no iOS */
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #75EACF rgba(255,255,255,0.15);
+  }
+
+  #info #descricao::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #info #descricao::-webkit-scrollbar-thumb {
+    background: #75EACF;
+    border-radius: 20px;
+  }
+
   /* ===================== SETINHA NO CELULAR ===================== */
   #toggleInfo {
     position: absolute;
@@ -372,4 +391,18 @@ footer {
   #info.fechado #toggleInfo:hover {
     transform: translateX(-50%) rotate(180deg) scale(1.1);
   }
+}
+
+/* ===================== BLOQUEIA SCROLL QUANDO 3D ESTIVER ABERTO ===================== */
+/* ===================== BLOQUEIA SCROLL NO 3D ===================== */
+body.viewer-ativo,
+html.viewer-ativo {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#viewer3d.ativo {
+  overflow: hidden;
 }
