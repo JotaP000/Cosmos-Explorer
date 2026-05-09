@@ -93,9 +93,8 @@ planets.forEach(planet => {
     clone.style.left = "50%";
     clone.style.top = "50%";
     const isMobile = window.innerWidth <= 768;
-
     clone.style.transform = isMobile
-    ? "translate(-50%, -50%) scale(1.3)"
+    ? "translate(-50%, -50%) scale(1.8)"
     : "translate(-50%, -50%) scale(4)";
 
     setTimeout(() => {

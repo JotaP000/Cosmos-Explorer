@@ -371,98 +371,143 @@ footer .direitos {
 
 /* celular */
 
+/* ===================== CELULAR ===================== */
 @media (max-width: 768px) {
 
-html {
-  font-size: 56.25%;
-}
-
-header {
-  padding: 2.5rem 1.5rem;
-}
-
-.logo > img {
-  position: static;
-  display: block;
-  margin: 0 auto;
-}
-
-.intro {
-  font-size: 2rem;
-}
-
-main {
-  padding: 0 1.5rem;
-  background-attachment: scroll;
-}
-
-.boas-vindas1 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-.boas-vindas2 h1 {
-  font-size: 2rem;
-}
-
-.carrossel-div {
-  padding-bottom: 8rem;
-}
-
-.carrossel img {
-  height: 80px;
-  margin-right: 1.4rem;
-}
-
-#viewer3d {
-  height: 100dvh;
-}
-
-#info {
-  width: 100%;
-  height: 42dvh;
-  min-height: 260px;
-  top: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem;
-  border-top: 1px solid rgba(117, 234, 207, 0.3);
-  backdrop-filter: blur(4px);
+  html {
+    font-size: 55%; /* um pouco menor que 56.25% pra dar mais controle */
   }
 
-#info.fechado {
-  transform: translateY(85%);
+  header {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .logo > img {
+    position: static;
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .intro {
+    font-size: 2.1rem;
+  }
+
+  /* === CARROSSEL === */
+  .carrossel-div {
+    padding: 10px 0 12rem 0;
+    width: 100%;
+  }
+
+  .carrossel {
+    gap: 12px; /* mais espaçamento */
+  }
+
+  .carrossel img {
+    height: 110px !important;     /* aumentei bastante */
+    width: auto !important;
+    margin-right: 12px;
+  }
+
+  .planet {
+    width: 110px !important;
+    min-width: 110px;
+  }
+
+  /* === VIEWER 3D === */
+  #viewer3d {
+    height: 100dvh;
+    display: none;
+  }
+
+  #viewer3d.ativo {
+    display: block;
+  }
+
+  #viewer3d canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Painel de informações embaixo */
+  #info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 45dvh;           /* aumentado */
+    min-height: 280px;
+    padding: 1.8rem 1.5rem 2.5rem;
+    border-top: 2px solid rgba(117, 234, 207, 0.4);
+    border-radius: 20px 20px 0 0;
+    background: rgba(3, 8, 20, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 30;
+  }
+
+  #info.fechado {
+    transform: translateY(78%);
+  }
+
+  #toggleInfo {
+    left: 50%;
+    top: -22px;
+    transform: translateX(-50%) rotate(90deg);
+    width: 48px;
+    height: 48px;
+    font-size: 2.4rem;
+  }
+
+  #info.fechado #toggleInfo {
+    transform: translateX(-50%) rotate(-90deg);
+  }
+
+  #titulo {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+  }
+
+  #descricao {
+    font-size: 1.35rem;
+    line-height: 1.65;
+    max-height: 28dvh;
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+
+  #BotaoVoltar {
+    top: 12px;
+    left: 12px;
+    font-size: 1.25rem;
+    padding: 10px 16px;
+    z-index: 999;
+  }
+
+  /* Footer */
+  footer .direitos {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2rem 1rem;
+    font-size: 1.2rem;
+  }
 }
 
-#toggleInfo {
-  left: 50%;
-  top: -18px;
-  transform: translateX(-50%) rotate(90deg);
+/* Correções gerais importantes */
+#viewer3d {
+  background: #000;
 }
 
-#info.fechado #toggleInfo {
-  transform: translateX(-50%) rotate(-90deg);
+.carrossel {
+  will-change: transform;
 }
 
-#titulo {
-  font-size: 2rem;
+.planet {
+  touch-action: manipulation; /* melhora responsividade no toque */
 }
 
-#descricao {
-  font-size: 1.3rem;
-  max-height: 24dvh;
-}
-
-#BotaoVoltar {
-  top: 1.2rem;
-  left: 1.2rem;
-  font-size: 1.2rem;
-  padding: 0.8rem 1.2rem;
-}
-
-footer .direitos {
-  flex-direction: column;
-  gap: 1.5rem;
-}
+/* Evita zoom indesejado no mobile */
+input, textarea, select, button {
+  font-size: 16px;
 }
